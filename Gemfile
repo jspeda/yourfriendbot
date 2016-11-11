@@ -59,3 +59,6 @@ group :development do
 end
 
 gem 'celluloid-io'
+
+# rspotify
+gem 'rspotify'

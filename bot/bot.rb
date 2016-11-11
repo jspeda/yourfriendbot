@@ -25,6 +25,36 @@ class GetSpecificQuote < SlackRubyBot::Bot
   end
 end
 
+# class SpotifyAlbumList < SlackRubyBot::Bot
+#   match /^albums (?<artist>\w+)$/ do |client, data, match|
+#     artist_link = RSpotify::Artist.search(match[:artist]).first
+#     client.say(channel: data.channel, text: "#{artist_link.albums.map do |x|
+#       if x.album_type = "album"
+#         x.name
+#       end
+#     end}")
+#   end
+
+class SpotifyAlbumList < SlackRubyBot::Bot
+  match /^albums (?<artist>\w+)$/ do |client, data, match|
+    artist_link = RSpotify::Artist.search(match[:artist]).first
+    client.say(channel: data.channel, text: "#{artist_link.albums.map { |x| x.name }.uniq}")
+  end
+end
+
+
+  # def list_albums(artist)
+  #   albums = artist.albums
+  #   albums.map { |x| x.name }
+  # end
+
+class SpotifySongSearch < SlackRubyBot::Bot
+  match /^song (?<artist>\w+) - (?<title>\w+)$/ do |client, data, match|
+    artist_link = RSpotify::Artist.search(match[:artist]).first
+    client.say(channel: data.channel, text: "#{artist_link.albums.uniq.map { |x| x.name}}")
+  end
+end
+
 # class Weather < SlackRubyBot::Bot
 #   match /^How is the weather in (?<location>\w*)\?$/ do |client, data, match|
 #     client.say(channel: data.channel, text: "The weather in #{match[:location]} is nice.")
