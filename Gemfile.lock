@@ -85,6 +85,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.10.0)
       faraday (>= 0.7.4, < 0.10)
+    figaro (1.1.1)
+      thor (~> 0.14)
     gli (2.14.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -270,6 +272,7 @@ DEPENDENCIES
   byebug
   celluloid-io
   coffee-rails (~> 4.1.0)
+  figaro
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails

@@ -62,3 +62,6 @@ gem 'celluloid-io'
 
 # rspotify
 gem 'rspotify'
+
+# figaro
+gem 'figaro'
